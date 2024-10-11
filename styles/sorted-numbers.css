@@ -1,0 +1,86 @@
+#sorted-content {
+  text-align: center;
+
+  & #numbers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+
+    gap: 1rem;
+    grid-auto-rows: 7rem;
+    margin-block: 2rem;
+
+    @media (max-width: 728px) {
+      margin-block: 0;
+      gap: 0rem;
+
+      margin-bottom: -2rem;
+    }
+  }
+
+  & button {
+    padding-bottom: 1rem;
+
+    @media (max-width: 728px) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.animated-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  text-align: center;
+  font: var(--font-bold) 4rem / var(--height-base) var(--font-mono);
+
+  max-width: 7rem;
+  height: auto;
+
+  flex: 1;
+
+  background-color: var(--content-brand);
+  border-radius: 1.75rem;
+
+  animation:
+    square-pop-in 0.4s ease-out,
+    number-fade-in 1.8s linear,
+    square-animation 1s linear 0.5s,
+    square-pop-out 0.4s ease-out 2.8s forwards;
+}
+
+@keyframes square-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes square-pop-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes square-pop-out {
+  0% {
+    background-color: var(--content-brand);
+  }
+  100% {
+    background-color: transparent;
+    color: var(--content-brand);
+  }
+}
+@keyframes number-fade-in {
+  0%,
+  95% {
+    color: var(--content-brand);
+  }
+}

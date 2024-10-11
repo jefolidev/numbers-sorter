@@ -1,0 +1,33 @@
+#sorter-wrapper {
+  width: 100%;
+  & header p {
+    font-size: var(--paragraph-md);
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+
+    margin-block: 2.75rem;
+
+    & .input-container {
+      display: flex;
+
+      gap: 0.75rem;
+    }
+    & .toggle-container {
+      display: flex;
+      gap: 0.5rem;
+
+      & span {
+        font: var(--font-medium) var(--paragraph-md) / var(--height-base)
+          var(--font-flex);
+        color: var(--content-primary);
+      }
+    }
+    & button {
+      flex: 1;
+    }
+  }
+}

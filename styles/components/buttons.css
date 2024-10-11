@@ -1,0 +1,110 @@
+button {
+  width: 100%;
+  position: relative;
+  border-radius: 0.5rem;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.85rem 2rem;
+
+  font: var(--font-semi) var(--label-sm) / var(--height-base) var(--font-flex);
+  color: var(--content-primary);
+  text-transform: uppercase;
+  cursor: pointer;
+
+  background-color: var(--bg-tertiary);
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg-tertiary);
+    border-radius: inherit;
+    transform: scaleX(1.01) scaleY(1.05);
+    z-index: -1;
+  }
+
+  &:hover::before {
+    background: linear-gradient(var(--gradient-background));
+    animation: rotateGradient 2s infinite linear;
+  }
+
+  &#sort {
+    & div {
+      width: 1.3rem;
+      height: 1.3rem;
+
+      background-image: url(../../assets/icons/arrow.svg);
+      background-position: center;
+      background-size: cover;
+
+      transition: transform 0.3s ease;
+    }
+    &:hover div {
+      animation: arrowBounce 0.8s infinite linear;
+    }
+  }
+
+  &#retry {
+    transition: opacity 1s ease-in-out;
+
+    & svg {
+      width: 1rem;
+      height: 1rem;
+
+      & path:nth-child(1) {
+        transform-origin: center;
+      }
+    }
+
+    &:hover svg path:nth-child(1) {
+      animation: arrowCircle 0.8s linear;
+    }
+  }
+}
+
+@keyframes arrowCircle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rotateGradient {
+  0% {
+    background: linear-gradient(0deg, var(--gradient-background));
+  }
+  25% {
+    background: linear-gradient(90deg, var(--gradient-background));
+  }
+  50% {
+    background: linear-gradient(180deg, var(--gradient-background));
+  }
+  75% {
+    background: linear-gradient(270deg, var(--gradient-background));
+  }
+  100% {
+    background: linear-gradient(360deg, var(--gradient-background));
+  }
+}

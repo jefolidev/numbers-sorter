@@ -1,0 +1,45 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: auto;
+
+  gap: 2.5rem;
+
+  & header {
+    @media (max-width: 768px) {
+      margin-block: 2rem;
+    }
+  }
+  & header p {
+    font: var(--font-semi) var(--overline) / var(--height-base) var(--font-mono);
+    color: var(--content-secondary);
+    text-transform: uppercase;
+  }
+
+  & section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+
+    & div {
+      max-width: 25rem;
+      width: auto;
+
+      display: flex;
+      align-items: start;
+
+      .faq-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5rem;
+        & span {
+          color: var(--content-brand);
+          font: var(--font-medium) var(--paragraph-md) / var(--height-base)
+            var(--font-flex);
+        }
+      }
+    }
+  }
+}
